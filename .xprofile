@@ -1,0 +1,11 @@
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export PATH=$PATH:/home/eethan1/.gem/ruby/2.5.0/bin
+udiskie -ant &
+tiddlywiki /home/eethan1/eethan1wiki --server 7122  > /home/eethan1/eethan1wiki/log &
+
+ibus-daemon &
+
+
+

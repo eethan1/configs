@@ -1,0 +1,15 @@
+vim 0ggVG=
+docker container run -it [image] [cmd]
+docker container ls [--all]//all list terminated container
+docker container run -p 8000:3000 -it [image][:tag] [cmd]
+//map 8000 to container 30000
+docker container rm [ID]
+docker container start [ID]
+docker container logs [ID]//see stdout
+docker container exec -it [ID] [cmd] // enter running container
+paccache -rk1
+paccache -ruk0
+vblank_mode=0 primusrun %command%
+nodemon ../../..
+df -h
+pacman -Qtdq | pacman -Rs -
