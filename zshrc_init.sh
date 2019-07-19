@@ -1,8 +1,10 @@
 ZSH=~/.oh-my-zsh/
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/$ZSH
+SCRIPTPATH=$(dirname $(readlink -f "$0"))
+echo $SCRIPTPATH
+git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
 cp ~/.zshrc ~/.zshrc.orig
-cp .zshrc ~/
-cp -r .zsh ~/ 
+cp $SCRIPTPATH/.zshrc ~/
+cp -r $SCRIPTPATH/.zsh ~/ 
 chsh -s $(which zsh)
 zshplgs=$ZSH/custom/plugins
 echo plugin path: $zshplgs
@@ -11,7 +13,6 @@ cd $zshplgs/autojump
 $zshplgs/autojump/install.py
 cd ~
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $zshplgs/zsh-autosuggestions/
-git clone https://github.com/wting/autojump $zshplgs/autojump
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $zshplgs/zsh-syntax-highlighting
 git clone https://github.com/paulirish/git-open.git $zshplgs/git-open
 
