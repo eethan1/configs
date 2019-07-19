@@ -1,0 +1,28 @@
+##在命令前插入 sudo {{{
+#定义功能
+sudo-command-line() {
+[[ -z $BUFFER ]] && zle up-history
+[[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+zle end-of-line                 #光标移动到行末
+}
+zle -N sudo-command-line
+
+# file manager key bind
+#cdUndoKey() {
+#  popd
+#  zle       reset-prompt
+#  echo
+#  ls
+#  zle       reset-prompt
+#}
+#
+#cdParentKey() {
+#  pushd ..
+#  zle      reset-prompt
+#  echo
+#  ls
+#  zle       reset-prompt
+#}
+#
+#zle -N                 cdParentKey
+#zle -N                 cdUndoKey
