@@ -7,9 +7,9 @@ fi
 
 cd afl-utils/
 virtualenv -p python3 env
-act
+. env/bin/activate
 python setup.py install
 python setup.py test
-deact
+deactivate
 cd ..
 
