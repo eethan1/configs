@@ -3,17 +3,22 @@ alias jobs="jobs -l"
 alias mv='mv -i'
 alias rm='rm -i'
 alias ls='ls -F --color=auto'
-alias ll='ls -al'
+alias ll='ls -alSh'
 alias grep='grep --color=auto'
 alias la='ls -a'
 alias tmuxa='tmux attach -t'
 alias 'cd..'='cd ..'
 alias hh='cat ~/.cheatsheet'
 
-alias act='source env/bin/activate'
+alias act='source venv/bin/activate'
 alias deact='deactivate'
 
 alias nbx="jupyter nbconvert --ExecutePreprocessor.timeout=100000 --execute "
 
 alias vpnntu='pulsesvc -h sslvpn2.ntu.edu.tw -u b06705051 -r "NTU EMail Account" -U https://sslvpn2.ntu.edu.tw/'
 alias vpncdx='pulsesvc -h'
+
+alias objdump="objdump -M intel"
+
+alias readelf='readelf -W'
+

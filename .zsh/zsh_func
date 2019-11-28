@@ -26,3 +26,23 @@ zle -N sudo-command-line
 #
 #zle -N                 cdParentKey
 #zle -N                 cdUndoKey
+#
+#
+chpy() {
+	_python=/usr/bin/python3
+	if [[ $1 =~ '^(py(thon){0,1}){0,1}[0-9](\.[0-9]){0,1}$' ]]; then
+		_python=/usr/bin/python$(echo $1 | sed -r 's/(py(thon){0,1}){0,1}//')
+	fi
+	if [ -f $_python ]; then
+		echo change to $_python 
+		ln -sf $_python /usr/bin/python
+	fi
+}
+
+keepVPN() {
+	vpn=${1:-"NTU"}
+	echo $vpn
+	if [[ $vpn =~ "^NTU$" ]]; then
+	    echo $vpn	
+	fi
+}
