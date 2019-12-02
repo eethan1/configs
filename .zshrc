@@ -119,7 +119,7 @@ if [[ -n ${TMUX} && -n ${commands[tmux]} ]];then
         esac
 fi
 
-zsh_files=(".zsh_opt" ".zsh_func" ".zsh_alias" ".zsh_bindkey")
+zsh_files=("zsh_opt" "zsh_func" "zsh_alias" "zsh_bindkey")
 for zfname in $zsh_files; do
         zsh_file=$ZCONFIGS/$zfname
         if [ -f $zsh_file ]; then
