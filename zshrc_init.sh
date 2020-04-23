@@ -3,8 +3,8 @@ SCRIPTPATH=$(dirname $(readlink -f "$0"))
 echo $SCRIPTPATH
 git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
 cp ~/.zshrc ~/.zshrc.orig
-cp $SCRIPTPATH/.zshrc ~/
-cp -r $SCRIPTPATH/.zsh ~/ 
+ln -sf $SCRIPTPATH/.zshrc ~/
+ln -sf $SCRIPTPATH/.zsh ~/ 
 chsh -s $(which zsh)
 zshplgs=$ZSH/custom/plugins
 echo plugin path: $zshplgs

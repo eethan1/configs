@@ -46,3 +46,12 @@ keepVPN() {
 	    echo $vpn	
 	fi
 }
+mkctf() {
+	mkdir web pwn rev misc ppc forensics crypto
+	ln -s $(pwd) ~/Documents
+}
+
+wgetgoogle() {
+	wget --load-cookies /tmp/wgetgooglecookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/wgetgooglecookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=$1" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$1" -O $2 && rm -rf /tmp/wgetgooglecookies.txt
+}
+
