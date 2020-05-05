@@ -4,7 +4,8 @@ echo $SCRIPTPATH
 git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
 cp ~/.zshrc ~/.zshrc.orig
 ln -sf $SCRIPTPATH/.zshrc ~/
-ln -sf $SCRIPTPATH/.zsh ~/ 
+ln -sf $SCRIPTPATH/.zsh ~/
+cp $SCRIPTPATH/.zshrc.env ~/
 chsh -s $(which zsh)
 zshplgs=$ZSH/custom/plugins
 echo plugin path: $zshplgs

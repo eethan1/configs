@@ -142,3 +142,7 @@ export NVM_SOURCE="/usr/share/nvm"                     # The AUR package install
 # GO
 export GOPATH=~/go:$(pwd)/
 
+if [ -f ~/.zshrc.env ]; then
+	echo 'env loaded'
+	source ~/.zshrc.env
+fi
