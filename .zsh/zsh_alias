@@ -16,9 +16,8 @@ alias deact='deactivate'
 alias nbx="jupyter nbconvert --ExecutePreprocessor.timeout=100000 --execute "
 
 alias vpnntu='pulsesvc -h sslvpn2.ntu.edu.tw -u b06705051 -r "NTU EMail Account" -U https://sslvpn2.ntu.edu.tw/'
-alias vpncdx='pulsesvc -h'
 
 alias objdump="objdump -M intel"
 
 alias readelf='readelf -W'
-
+alias gitethan='git -c user.name=eethan1 -c user.email=call132call132@gmail.com'
