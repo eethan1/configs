@@ -139,6 +139,10 @@ export NVM_DIR="$HOME/.nvm"                            # You can change this if 
 export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # Load NVM
 
+# Node
+export NODE_PATH='/usr/lib/node_modules'
+
+
 # GO
 export GOPATH=~/go:$(pwd)/
 
