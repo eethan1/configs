@@ -2,12 +2,27 @@
 mkdir $1
 cat > "$1/exp.py" << EOF
 from pwn import *
+import sys
 context.arch = 'i386' # 'amd64'
 
-r = process('./')
-r = remote('chall.pwnable.tw',)
+MODE = ['LOCAL','DEBUG','REMOTE']
+mode = 0
+flag = '/home/eethan1/flag'
+if len(sys.argv) > 1:
+    mode = int(sys.argv[1])
+print(MODE[mode])
 
-input()
+
+if mode == 0:
+    r = process('./orw')
+if mode == 1:
+    context.terminal = ['sakura','-x','sh','-c']
+    r = process('./orw')
+    gdb.attach(proc.pidof(r)[0])
+elif mode == 2:
+    r = remote('chall.pwnable.tw',10001)
+    flag = '/flag'
+
 
 r.interactive()
 EOF
