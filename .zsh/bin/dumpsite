@@ -1,1 +1,0 @@
-wget --mirror --no-clobber --convert-links --adjust-extension --page-requisites --no-parent $1
