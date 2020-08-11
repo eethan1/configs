@@ -24,3 +24,8 @@ alias gitethan='git -c user.name=eethan1 -c user.email=call132call132@gmail.com'
 alias dumpsite='wget --recursive --mirror -e robots=off --no-clobber --convert-links --adjust-extension --page-requisites'
 
 
+# OSINT
+alias spiderfoot='cd ~/gits/spiderfoot && python3 ./sf.py -l 127.0.0.1:5001'
+alias amass='docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass'
+alias theHarvester='cd ~/gits/theHarvester && python3 theHarvester.py'
+alias gopherus='cd ~/gits/Gopherus && python gopherus.py'
