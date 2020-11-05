@@ -25,7 +25,22 @@ alias dumpsite='wget --recursive --mirror -e robots=off --no-clobber --convert-l
 
 
 # OSINT
-alias spiderfoot='cd ~/gits/spiderfoot && python3 ./sf.py -l 127.0.0.1:5001'
-alias amass='docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass'
+
+alias amass='docker run --rm `-v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass'
 alias theHarvester='cd ~/gits/theHarvester && python3 theHarvester.py'
 alias gopherus='cd ~/gits/Gopherus && python gopherus.py'
+alias subdomainizer='cd ~/gits/SubDomainizer && python SubDomainizer.py'
+alias spiderfoot='cd ~/gits/spiderfoot && python3 ./sf.py -l 127.0.0.1:5001'
+alias pspiderfoot='cd ~/gits/spiderfoot && proxychains python3 ./sf.py -l 127.0.0.1:5001'
+
+# Brute
+alias arjun='~/gits/Arjun/arjun.py'
+alias dirstalk='docker run --rm stefanoj3/dirstalk dirstalk'
+alias dirmap='cd ~/gits/dirmap && python3 dirmap.py'
+alias dirmaptest='dirmap -i http://127.0.0.1:7123/ -lcf'
+
+# Scanner
+alias wpscan='docker run -it --rm wpscanteam/wpscan'
+
+# docker
+alias dpsf='docker ps --format="${DOCKER_FORMAT}"'
