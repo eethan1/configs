@@ -38,8 +38,13 @@ chpy() {
 		ln -sf $_python /usr/bin/python
 	fi
 }
-_cd=$(which cd);
-cd() {
-	builtin cd $@;
+
+
+
+
+
+# Hook 
+
+chpwd(){
 	[[ -d venv ]] && eval act;
 }
