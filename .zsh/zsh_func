@@ -46,5 +46,16 @@ chpy() {
 # Hook 
 
 chpwd(){
-	[[ -d venv ]] && eval act;
+	if [[ -v venvpath ]] then
+		if [[ !($(pwd) =~ "^${venvpath}") ]] then
+			eval deact
+			unset venvpath
+			if [[ -d venv ]] then
+				eval act && venvpath=$(pwd)
+			fi
+		fi
+
+	elif [[ -d venv ]] then
+		eval act && venvpath=$(pwd)	
+	fi
 }
