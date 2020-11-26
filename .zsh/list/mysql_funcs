@@ -1,41 +1,10 @@
-& 	Bitwise AND
-> 	Greater than operator
->> 	Right shift
->= 	Greater than or equal operator
-< 	Less than operator
-<>      Not equal operator
-!= 	Not equal operator
-<< 	Left shift
-<= 	Less than or equal operator
-<=> 	NULL-safe equal to operator
-%       Modulo operator
-MOD 	Modulo operator
-* 	Multiplication operator
-+ 	Addition operator
-- 	Minus operator
-- 	Change the sign of the argument
--> 	Return value from JSON column after evaluating path; equivalent to JSON_EXTRACT().
-->> (introduced 5.7.13) 	Return value from JSON column after evaluating path and unquoting the result; equivalent to JSON_UNQUOTE(JSON_EXTRACT()).
-/ 	Division operator
-:= 	Assign a value
-= 	Assign a value (as part of a SET statement, or as part of the SET clause in an UPDATE statement)
-= 	Equal operator
-^ 	Bitwise XOR
-| 	Bitwise OR
-~ 	Bitwise inversion 
-AND     Logical AND
-&& 	Logical AND
-OR      Logical OR
-|| 	Logical OR
-XOR 	Logical XOR
-NOT     Negates value
-! 	Negates value
 ABS() 	Return the absolute value
 ACOS() 	Return the arc cosine
 ADDDATE() 	Add time values (intervals) to a date value
 ADDTIME() 	Add time
 AES_DECRYPT() 	Decrypt using AES
 AES_ENCRYPT() 	Encrypt using AES
+AND, && 	Logical AND
 ANY_VALUE() 	Suppress ONLY_FULL_GROUP_BY value rejection
 Area() (deprecated) 	Return Polygon or MultiPolygon area
 AsBinary(), AsWKB() (deprecated) 	Convert from internal geometry format to WKB
@@ -260,6 +229,7 @@ MultiLineString() 	Contruct MultiLineString from LineString values
 MultiPoint() 	Construct MultiPoint from Point values
 MultiPolygon() 	Construct MultiPolygon from Polygon values
 NAME_CONST() 	Cause the column to have the given name
+NOT, ! 	Negates value
 NOT BETWEEN ... AND ... 	Whether a value is not within a range of values
 NOT IN() 	Whether a value is not within a set of values
 NOT LIKE 	Negation of simple pattern matching
@@ -271,6 +241,7 @@ NumInteriorRings() (deprecated) 	Return number of interior rings in Polygon
 NumPoints() (deprecated) 	Return number of points in LineString
 OCT() 	Return a string containing octal representation of a number
 OCTET_LENGTH() 	Synonym for LENGTH()
+OR, || 	Logical OR
 ORD() 	Return character code for leftmost character of the argument
 Overlaps() (deprecated) 	Whether MBRs of two geometries overlap
 PASSWORD() (deprecated) 	Calculate and return a password string
@@ -441,7 +412,35 @@ WEEKOFYEAR() 	Return the calendar week of the date (1-53)
 WEIGHT_STRING() 	Return the weight string for a string
 Within() (deprecated) 	Whether MBR of one geometry is within MBR of another
 X() (deprecated) 	Return X coordinate of Point
+XOR 	Logical XOR
 Y() (deprecated) 	Return Y coordinate of Point
 YEAR() 	Return the year
 YEARWEEK() 	Return the year and week
-
+| 	Bitwise OR
+~ 	Bitwise inversion 
+& 	Bitwise AND
+> 	Greater than operator
+>> 	Right shift
+>= 	Greater than or equal operator
+< 	Less than operator
+<>, != 	Not equal operator
+<< 	Left shift
+<= 	Less than or equal operator
+<=> 	NULL-safe equal to operator
+%, MOD 	Modulo operator
+* 	Multiplication operator
++ 	Addition operator
+- 	Minus operator
+- 	Change the sign of the argument
+-> 	Return value from JSON column after evaluating path; equivalent to JSON_EXTRACT().
+->> (introduced 5.7.13) 	Return value from JSON column after evaluating path and unquoting the result; equivalent to JSON_UNQUOTE(JSON_EXTRACT()).
+/ 	Division operator
+:= 	Assign a value
+= 	Assign a value (as part of a SET statement, or as part of the SET clause in an UPDATE statement)
+= 	Equal operator
+^ 	Bitwise XOR
+0x
+x'
+0b
+b'
+n'      unicode

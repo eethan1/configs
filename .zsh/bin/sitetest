@@ -1,0 +1,9 @@
+#! /usr/bin/env zsh
+echo "##############Test http://$1"
+curl --connect-timeout 6 http://$1 -w "%{stderr}\n%{redirect_url}%{http_code}\n" -s  | head -c 300
+echo "##############Test https://$1"
+curl --connect-timeout 6 https://$1 -w "%{stderr}\n%{redirect_url}%{http_code}\n" -s  | head -c 300
+echo "##############Test insecure https://$1"
+curl --connect-timeout 6 -k https://$1 -w "%{stderr}\n%{redirect_url}%{http_code}\n" -s | head -c 300
+
+

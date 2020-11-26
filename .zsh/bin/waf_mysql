@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+
+cp "$(dirname $(realpath $0))/../list/mysql_funcs" ./;
+cat > ./pass_waf << 'EOF'
+#!/usr/bin/env php
+<?php
+$fname = './mysql_funcs';
+$f = fopen($fname,'r') or die('function list not found');
+$list = fread($f,filesize($fname));
+$list = explode("\n",$list);
+
+$blacklist = '';
+
+
+$blacklist = "/$blacklist/i";
+foreach($list as $e) {
+	$func = explode(" ", $e)[0];
+	if(preg_match($blacklist, $func))	
+		continue;
+	echo $e."\n";
+}
+for($i=0;$i<255;++$i) {
+	if(preg_match($blacklist,chr($i))){
+		continue;
+	}
+	if($i>20 && $i<126){
+		print(chr($i));
+	}else{
+		print('0x'.dechex($i).", ");
+	}
+}
+echo "\nblacklist: ".$blacklist;
+?>
+EOF
+chmod +x ./pass_waf
