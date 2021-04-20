@@ -30,6 +30,7 @@ alias gb='git branch'
 alias gss='git status'
 alias grom='git rebase origin/master'
 alias grc='git rebase --continue'
+alias gckm='git checkout master'
 
 # npm
 
