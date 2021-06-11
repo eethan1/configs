@@ -1,6 +1,7 @@
 alias cp="cp -i"
 alias jobs="jobs -l"
 alias mv='mv -i'
+alias mmv='noglob zmv -W'
 alias rm='rm -i'
 alias ls='ls -F --color=auto'
 alias ll='ls -alSh'
