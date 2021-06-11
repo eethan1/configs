@@ -38,10 +38,26 @@ chpy() {
 		ln -sf $_python /usr/bin/python
 	fi
 }
-_cd=$(which cd);
-cd() {
-	builtin cd $@;
-	[[ -d venv ]] && eval act;
+
+
+
+
+
+# Hook 
+
+chpwd(){
+	if [[ -v venvpath ]] then
+		if [[ !($(pwd) =~ "^${venvpath}") ]] then
+			eval deact
+			unset venvpath
+			if [[ -d venv ]] then
+				eval act && venvpath=$(pwd)
+			fi
+		fi
+
+	elif [[ -d venv ]] then
+		eval act && venvpath=$(pwd)	
+	fi
 }
 
 nginxupsite() {

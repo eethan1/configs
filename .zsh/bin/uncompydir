@@ -1,0 +1,13 @@
+#! /usr/bin/env zsh
+
+decompile2py() {
+    fname=$1
+    if [[ (-f $fname) && ($fname =~ '\.pyc$') ]] {
+	oname=$(echo $fname | sed 's/\.pyc/\.py/')
+	if [[ (! -e $oname) || -v FORCE ]] {
+            uncompyle6 $fname > $oname
+	}
+    }
+}
+ls -a | xargs -I {} zsh -c "eval $(functions decompile2py) ;decompile2py {} $1"
+unset -f decompile2py
