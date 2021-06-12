@@ -1,6 +1,7 @@
 alias cp="cp -i"
 alias jobs="jobs -l"
 alias mv='mv -i'
+alias mmv='noglob zmv -W'
 alias rm='rm -i'
 alias ls='ls -F --color=auto'
 alias ll='ls -alSh'
@@ -23,6 +24,21 @@ alias readelf='readelf -W'
 alias gitethan='git -c user.name=eethan1 -c user.email=call132call132@gmail.com'
 alias dumpsite='wget --recursive --mirror -e robots=off --no-clobber --convert-links --adjust-extension --page-requisites'
 
+# Git
+
+alias gck='git checkout'
+alias gb='git branch'
+alias gss='git status'
+alias grom='git rebase origin/master'
+alias grc='git rebase --continue'
+alias gckm='git checkout master'
+
+# npm
+
+alias nrt='npm run test'
+alias nrd='npm run dev'
+alias nrl='npm run lint'
+alias nr='npm run'
 
 # OSINT
 

@@ -59,3 +59,11 @@ chpwd(){
 		eval act && venvpath=$(pwd)	
 	fi
 }
+
+nginxupsite() {
+	[[ -f /etc/nginx/sites-available/$1 ]] && ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/$1;
+}
+nginxdownsite() {
+	[[ -f /etc/nginx/sites-enabled/$1 ]] && rm /etc/nginx/sites-enabled/$1;
+}
+
