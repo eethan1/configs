@@ -39,6 +39,10 @@ alias dirstalk='docker run --rm stefanoj3/dirstalk dirstalk'
 alias dirmap='cd ~/gits/dirmap && python3 dirmap.py'
 alias dirmaptest='dirmap -i http://127.0.0.1:7123/ -lcf'
 
+
+#php
+alias phpggc='docker run -i --rm phpggc'
+
 # Scanner
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
 

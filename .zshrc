@@ -8,7 +8,7 @@ export ZCONFIGS=~/.zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="random"
+ZSH_THEME="sammy"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -119,7 +119,7 @@ if [[ -n ${TMUX} && -n ${commands[tmux]} ]];then
         esac
 fi
 
-zsh_files=("zsh_opt" "zsh_func" "zsh_alias" "zsh_bindkey")
+zsh_files=("zsh_opt" "zsh_func" "zsh_alias" "zsh_bindkey" "zsh_window")
 for zfname in $zsh_files; do
         zsh_file=$ZCONFIGS/$zfname
         if [ -f $zsh_file ]; then
@@ -144,7 +144,8 @@ export NODE_PATH='/usr/lib/node_modules'
 
 
 # GO
-export GOPATH=~/go:$(pwd)/
+GOPATH="~/go"
+
 
 if [ -f ~/.zshrc.env ]; then
 	echo 'env loaded'

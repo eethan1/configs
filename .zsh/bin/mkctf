@@ -2,6 +2,6 @@
 mkdir $1
 cd $1
 mkdir web pwn rev misc ppc forensics crypto
-ln -s $(pwd) ~/Documents/CTFs/
+ln -s $(pwd) ~/CTFs/
 
 
