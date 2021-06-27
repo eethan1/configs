@@ -64,3 +64,6 @@ alias wpscan='docker run -it --rm wpscanteam/wpscan'
 
 # docker
 alias dpsf='docker ps --format="${DOCKER_FORMAT}"'
+
+# nodejs
+alias yarnadddev='yarn add -D chai chai-arrays chai-http chai-things eslint eslint-config-prettier husky lint-staged mocha nyc prettier nodemon'
