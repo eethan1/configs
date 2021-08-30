@@ -63,7 +63,18 @@ alias phpggc='docker run -i --rm phpggc'
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
 
 # docker
+alias dimgls='docker image ls'
+alias dimglsa='docker image ls -a'
 alias dpsf='docker ps --format="${DOCKER_FORMAT}"'
+alias dctrls='docker container ls'
+alias dctrlsa='docker container ls -a'
+alias dctrrm='docker container rm'
+alias dctrrmf='docker container rm -f'
+
+# docker-compose
+alias dcpb='docker-compose build'
+alias dcpu='docker-compose up'
+alias dcpbu='docker-compose build && docker-compose up'
 
 # nodejs
 alias yarnadddev='yarn add -D chai chai-arrays chai-http chai-things eslint eslint-config-prettier husky lint-staged mocha nyc prettier nodemon'

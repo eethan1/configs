@@ -67,3 +67,10 @@ nginxdownsite() {
 	[[ -f /etc/nginx/sites-enabled/$1 ]] && rm /etc/nginx/sites-enabled/$1;
 }
 
+dbash() {
+  docker exec -it $1 /bin/bash
+}
+
+dsh() {
+  docker exec -it $1 /bin/sh
+}

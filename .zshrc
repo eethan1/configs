@@ -132,7 +132,7 @@ done
 
 #add PATH
 export PATH=$PATH:~/.gem/ruby/2.5.0/bin:~/.local/bin:.:~/shell_script:/usr/share/zsh/5.7/help/comptags:~/go/bin:~/gits:~/.config/composer/vendor/bin
-export PATH=$PATH:~/.zsh/bin:.
+export PATH=$PATH:~/.zsh/bin:.:./node_modules/.bin
 
 # Set up Node Version Manager
 export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
