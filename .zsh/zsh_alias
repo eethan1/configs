@@ -55,6 +55,8 @@ alias dirstalk='docker run --rm stefanoj3/dirstalk dirstalk'
 alias dirmap='cd ~/gits/dirmap && python3 dirmap.py'
 alias dirmaptest='dirmap -i http://127.0.0.1:7123/ -lcf'
 
+# Crypto
+alias rsactftool='docker run --rm -v $(pwd):/data -it  razaborg/rsactftool'
 
 #php
 alias phpggc='docker run -i --rm phpggc'
@@ -63,13 +65,22 @@ alias phpggc='docker run -i --rm phpggc'
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
 
 # docker
+alias dimg='docker image'
 alias dimgls='docker image ls'
 alias dimglsa='docker image ls -a'
 alias dpsf='docker ps --format="${DOCKER_FORMAT}"'
+alias dctr='docker container'
 alias dctrls='docker container ls'
 alias dctrlsa='docker container ls -a'
 alias dctrrm='docker container rm'
 alias dctrrmf='docker container rm -f'
+alias drm='docker rm'
+alias drmstop='drm $(docker ps -qa)'
+alias dkillrun='docker kill $(docker ps -q)'
+
+
+# docker --rm container
+alias dredis='docker run --rm -p "6379:6379" redis'
 
 # docker-compose
 alias dcpb='docker-compose build'
