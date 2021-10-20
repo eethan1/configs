@@ -1,0 +1,10 @@
+{
+  "name": "cjisojsbin",
+  "scripts": {},
+  "bin": {
+    "extyaml": "./extyaml.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
