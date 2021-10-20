@@ -1,5 +1,5 @@
 ZSH=~/.oh-my-zsh/
-SCRIPTPATH=$(dirname $(readlink -f "$0"))
+SCRIPTPATH=~/gits/configs/
 echo $SCRIPTPATH
 git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
 cp ~/.zshrc ~/.zshrc.orig
