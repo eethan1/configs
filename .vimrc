@@ -98,4 +98,4 @@ map <F2> 0ggVG=G
 " arrange
 map <F3> ggg?G
 " ROT13
-
+set backspace=indent,eol,start
