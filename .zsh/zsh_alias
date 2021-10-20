@@ -10,6 +10,8 @@ alias la='ls -a'
 alias tmuxa='tmux attach -t'
 alias 'cd..'='cd ..'
 alias hh='cat ~/.cheatsheet'
+alias file='file -h'
+
 
 alias act='source venv/bin/activate'
 alias deact='deactivate'
