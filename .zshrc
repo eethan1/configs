@@ -151,3 +151,8 @@ if [ -f ~/.zshrc.env ]; then
 	echo 'env loaded'
 	source ~/.zshrc.env
 fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+neofetch

@@ -1,0 +1,14 @@
+dumptarget="$(echo $1| sed 's/\(http.\?:\/\/[^/]*\)\/.*/\1/')"
+echo "Target: $dumptarget"
+echo "Test Index: ${dumptarget}/.git/index"
+curl "${dumptarget}/.git/index" --output /tmp/gitdumperindex
+gitevil=$(gin /tmp/gitdumperindex 2>/dev/null | grep '\.\./')
+if [ -z "$gitevil" ];then
+ echo 'Safe .git'
+else
+  echo "evil content: $gitevil"
+  echo 'Evil git';
+  exit
+fi
+cd ~/gits/git-dumper && source ./venv/bin/activate && ./git_dumper.py $dumptarget ~/sites/$(echo $dumptarget | sed 's/http.\?:\/\///')
+echo "save to ~/sites/$(echo $dumptarget | sed 's/http.\?:\/\///')"

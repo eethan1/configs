@@ -2,7 +2,7 @@ alias cp="cp -i"
 alias jobs="jobs -l"
 alias mv='mv -i'
 alias mmv='noglob zmv -W'
-alias rm='rm -i'
+alias rm='safe-rm -i'
 alias ls='ls -F --color=auto'
 alias ll='ls -alSh'
 alias grep='grep --color=auto'
@@ -11,7 +11,7 @@ alias tmuxa='tmux attach -t'
 alias 'cd..'='cd ..'
 alias hh='cat ~/.cheatsheet'
 alias file='file -h'
-
+alias reload='exec zsh'
 
 alias act='source venv/bin/activate'
 alias deact='deactivate'
@@ -20,10 +20,10 @@ alias nbx="jupyter nbconvert --ExecutePreprocessor.timeout=100000 --execute "
 
 alias vpnntu='pulsesvc -h sslvpn2.ntu.edu.tw -u b06705051 -r "NTU EMail Account" -U https://sslvpn2.ntu.edu.tw/'
 
-alias objdump="objdump -M intel"
-
 alias readelf='readelf -W'
 alias gitethan='git -c user.name=eethan1 -c user.email=call132call132@gmail.com'
+# Dumper
+
 alias dumpsite='wget --recursive --mirror -e robots=off --no-clobber --convert-links --adjust-extension --page-requisites'
 
 # Git
@@ -42,14 +42,26 @@ alias nrd='npm run dev'
 alias nrl='npm run lint'
 alias nr='npm run'
 
-# OSINT
+# java
+
+alias jshell18='/usr/lib/jvm/java-18-openjdk/bin/jshell'
+
+# RECON
 
 alias amass='docker run --rm `-v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass'
 alias theHarvester='cd ~/gits/theHarvester && python3 theHarvester.py'
 alias gopherus='cd ~/gits/Gopherus && python gopherus.py'
 alias subdomainizer='cd ~/gits/SubDomainizer && python SubDomainizer.py'
-alias spiderfoot='cd ~/gits/spiderfoot && python3 ./sf.py -l 127.0.0.1:5001'
+alias spiderfoot='docker run --name spiderfoot -d --rm -it -p 5001:5001 spiderfoot'
 alias pspiderfoot='cd ~/gits/spiderfoot && proxychains python3 ./sf.py -l 127.0.0.1:5001'
+alias trufflehog='docker run -it --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest'
+
+## domain
+dumpdn(){
+ (cd ~/gits/Turbolist3r && act && python turbolist3r.py -d $1)
+}
+
+
 
 # Brute
 alias arjun='~/gits/Arjun/arjun.py'
