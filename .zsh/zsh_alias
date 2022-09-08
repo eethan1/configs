@@ -77,7 +77,7 @@ alias phpggc='docker run -i --rm phpggc'
 
 # Scanner
 alias wpscan='docker run -it --rm wpscanteam/wpscan'
-
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:1.10.0'
 # docker
 alias dimg='docker image'
 alias dimgls='docker image ls'
