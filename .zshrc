@@ -134,6 +134,9 @@ done
 export PATH=$PATH:~/.gem/ruby/2.5.0/bin:~/.local/bin:.:~/shell_script:/usr/share/zsh/5.7/help/comptags:~/go/bin:~/gits:~/.config/composer/vendor/bin
 export PATH=$PATH:~/.zsh/bin:.:./node_modules/.bin
 
+# k8s plugin manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # Set up Node Version Manager
 export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
 export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
@@ -148,11 +151,7 @@ GOPATH="~/go"
 
 
 if [ -f ~/.zshrc.env ]; then
-	echo 'env loaded'
-	source ~/.zshrc.env
+		source ~/.zshrc.env
+    echo 'env loaded'
 fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 neofetch
