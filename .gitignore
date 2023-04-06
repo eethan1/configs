@@ -1,0 +1,4 @@
+wireshark/profiles/*/*
+
+!wireshark/profiles/*/dfilter_buttons
+
