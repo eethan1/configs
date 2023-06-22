@@ -9,7 +9,7 @@ set background=dark
 set cursorline
 set enc=utf8
 set hls
-set mouse=nv
+set mouse=a
 set number
 set ic
 set expandtab
