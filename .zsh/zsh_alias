@@ -42,6 +42,15 @@ alias nrd='npm run dev'
 alias nrl='npm run lint'
 alias nr='npm run'
 
+export VENV_PATH='./.venv'
+# poetry
+alias mkpoe="python3 -m venv $VENV_PATH && \
+  $VENV_PATH/bin/pip install -U pip setuptools && \
+  $VENV_PATH/bin/pip install poetry &&\
+  source $VENV_PATH/bin/activate &&\
+  poetry self add 'poethepoet[poetry_plugin]'"
+
+
 # java
 
 alias jshell18='/usr/lib/jvm/java-18-openjdk/bin/jshell'
@@ -96,7 +105,7 @@ dumpdn(){
 
 
 # Brute
-alias dwfuzz="docker run -v $HOME/Documents/wordlists:/wordlist/ -it ghcr.io/xmendez/wfuzz wfuzz"
+alias dwfuzz="$dapppre -v $HOME/Documents/wordlists:/wordlist/ ghcr.io/xmendez/wfuzz"
 alias arjun='~/gits/Arjun/arjun.py'
 alias ddirstalk="$dapppre \$dappopts --name dirstalk stefanoj3/dirstalk dirstalk"
 alias dirmap='cd ~/gits/dirmap && python3 dirmap.py'
