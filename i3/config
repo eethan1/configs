@@ -17,12 +17,12 @@ font pango:monospace 14
 
 # auto startup
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id xcompmgr &
+#exec_always --no-startup-id xcompmgr -c &
 exec --no-startup-id nm-applet
 #exec --no-startup-id xrandr --output Virtual1 --mode 1360x768
 exec --no-startup-id feh --bg-scale ~/wallpaper.jpeg
 exec_always --no-startup-id fcitx5 -d
-
+exec_always --no-startup-id "sh ~/.config/i3/set_terminal_trans.sh"
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -36,7 +36,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id "w=$(i3-msg -t get_workspaces | jq \\".[] | select(.focused==true).name\\" | cut -d '\\"' -f 2); xfce4-terminal --hide-menubar --hide-borders -e \\"sh -c '(tmux has-session -t $w && tmux attach -t $w) || tmux new-session -s $w'\\""
+bindsym $mod+Return exec --no-startup-id "w=$(i3-msg -t get_workspaces | jq \\".[] | select(.focused==true).name\\" | cut -d '\\"' -f 2); xfce4-terminal --hide-menubar  -e \\"sh -c '(tmux has-session -t $w && tmux attach -t $w) || tmux new-session -s $w'\\""
+
 bindsym $mod+Shift+Return exec xfce4-terminal --drop-down
 
 # kill focused window
@@ -45,15 +46,7 @@ bindsym mod1+F4      kill
 
 bindsym $mod+F1 exec rofi -show drun
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 focus_follows_mouse yes
-
-
-
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -74,9 +67,8 @@ bindsym $mod+backslash split h
 bindsym $mod+underscore split v
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle tabbed splitv splith
+bindsym $mod+F11 fullscreen toggle 
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -84,8 +76,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
 
 bindsym $mod+f exec --no-startup-id thunar
 
@@ -153,8 +143,8 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize shrink height 10 px or 10 ppt
-        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
@@ -186,20 +176,14 @@ bar {
 # Application shortcut
 bindsym $mod+c exec code
 
-#===appearance===
-#---window style---
-
-# transparentity
-exec --no-startup-id transset-df -i "$WINDOWID" 0.7
-
 # window gap
-gaps inner 8
-gaps outer 5
+gaps inner 5
+gaps outer 3
 smart_gaps on
 
 # new window
-new_window none
-new_float normal
+default_border none
+default_floating_border normal
 hide_edge_borders both
 
 # window colors
@@ -212,9 +196,12 @@ client.placeholder      #a2b4ba  #0c0c0c  #ffffff  #1793d0   #0c0c0c
 client.background       #82abba
 
 # Auto Float Application, find name in /usr/share/applications/
-for_window [class="Vlc"] floating enable
-for_window [class="VirtualBox"] floating enable
-for_window [class="Thunar"] floating enable
-#for_window [class="Electron"] floating enable
-floating_minimum_size 400 x 300
-#floating_maximum_size 1200 x 900
+for_window [class="burp-StartBurp"] move container to workspace 2, workspace 2, layout tabbed
+for_window [class="burp-StartBurp" floating floating_from=auto] floating toggle, floating toggle
+for_window [class="*Chromium*"] move container to workspace 3, workspace 3
+for_window [class="Code"] move container to workspace 1, workspace 1, layout tabbed
+# floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1
+
+exec --no-startup-id code
+exec --no-startup-id /usr/bin/burpsuite-pro
