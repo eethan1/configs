@@ -18,15 +18,15 @@ zle -N sudo-command-line
 chpwd(){
 	if [[ -v venvpath ]] then
 		if [[ !($(pwd) =~ "^${venvpath}") ]] then
-			eval deact
+			eval source ./.venv/bin/deactivate
 			unset venvpath
 			if [[ -d venv ]] then
-				eval act && venvpath=$(pwd)
+				eval source ./.venv/bin/activate && venvpath=$(pwd)
 			fi
 		fi
 
-	elif [[ -d venv ]] then
-		eval act && venvpath=$(pwd)	
+	elif [[ -d .venv ]] then
+		eval source ./.venv/bin/activate && venvpath=$(pwd)	
 	fi
 }
 
@@ -39,6 +39,10 @@ nginxdownsite() {
 
 dbash() {
   docker exec -it $1 /bin/bash
+}
+
+dbashroot() {
+  docker exec -it -u 0 $1 /bin/bash
 }
 
 dsh() {
