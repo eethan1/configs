@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -62,17 +63,25 @@ DISABLE_AUTO_UPDATE="true"
 # autojump
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
+# autoload -U compinit && compinit -u
 autoload -U zmv
 
 plugins=(
+  poetry
   git
   git-open
   zsh-autosuggestions
   zsh-syntax-highlighting
-  jump
   autojump
+  zsh-nvm
 )
+
+# Set up Node Version Manager
+export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
+export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
+export NVM_LAZY_LOAD=true
+export NODE_PATH='/usr/lib/node_modules'
+
 
 # User configuration
 
@@ -131,19 +140,11 @@ for zfname in $zsh_files; do
 done
 
 #add PATH
-export PATH=$PATH:~/.gem/ruby/2.5.0/bin:~/.local/bin:.:~/shell_script:/usr/share/zsh/5.7/help/comptags:~/go/bin:~/gits:~/.config/composer/vendor/bin
-export PATH=$PATH:~/.zsh/bin:.:./node_modules/.bin
+export PATH=$PATH:~/.gem/ruby/2.5.0/bin:~/.local/bin:~/shell_script:/usr/share/zsh/5.7/help/comptags:~/go/bin:~/gits:~/.config/composer/vendor/bin
+export PATH=$PATH:~/.zsh/bin:./node_modules/.bin:.
 
 # k8s plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# Set up Node Version Manager
-export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
-export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
-[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # Load NVM
-
-# Node
-export NODE_PATH='/usr/lib/node_modules'
 
 
 # GO
@@ -154,4 +155,12 @@ if [ -f ~/.zshrc.env ]; then
 		source ~/.zshrc.env
     echo 'env loaded'
 fi
-neofetch
+
+if [ -f /tmp/.neofetch ]; then
+    cat /tmp/.neofetch
+else
+    neofetch | tee /tmp/.neofetch
+fi
+# zprof
+
+[[ -s "/home/eethan1/.gvm/scripts/gvm" ]] && source "/home/eethan1/.gvm/scripts/gvm"
