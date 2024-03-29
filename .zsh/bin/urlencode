@@ -1,0 +1,5 @@
+
+python -c "import sys;print(''.join([f'%{ord(a):x}' for a in sys.argv[1]]))" $1 
+
+
+

@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys, fileinput
+
+WIDE_MAP = {i: i + 0xFEE0 for i in range(0x21, 0x7F)}
+WIDE_MAP[0x20] = 0x3000
+
+def widen(s):
+    """
+    Convert all ASCII characters to their full-width counterpart.
+    
+    >>> print widen('test, Foo!')
+    ｔｅｓｔ，　Ｆｏｏ！
+    >>> 
+    """
+    return s.translate(WIDE_MAP)
+
+print(widen(sys.argv[1]))
