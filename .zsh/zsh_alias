@@ -13,7 +13,6 @@ alias hh='cat ~/.cheatsheet'
 alias file='file -h'
 alias reload='exec zsh'
 alias dotenv='export $(cat .env|xargs)'
-alias cpdevip='ip -j addr show tun0 | jq --raw-output0 ".[]|.addr_info[]|select(.family==\"inet\" and .label == \"${dev:-tun0}\")| .local"  | xclip -selection clipboard'
 alias act='source venv/bin/activate'
 alias deact='deactivate'
 
