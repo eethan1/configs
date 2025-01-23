@@ -8,7 +8,7 @@ zle end-of-line                 #光标移动到行末
 zle -N sudo-command-line
 
 cpdevip() {
-ip -j addr show ${1:-tun0} | jq --raw-output0 ".[]|.addr_info[]|select(.family==\"inet\")| .local"  | xclip -selection clipboard
+ip -j addr show ${1:-tun0} | jq --join-output ".[]|.addr_info[]|select(.family==\"inet\")| .local"  | xclip -selection clipboard
 }
 
 
