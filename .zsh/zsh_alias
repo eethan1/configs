@@ -123,3 +123,10 @@ alias drustscan="$dapppre \$dappopts --name rustscan rustscan/rustscan:1.10.0"
 
 # nodejs
 alias yarnadddev='yarn add -D chai chai-arrays chai-http chai-things eslint eslint-config-prettier husky lint-staged mocha nyc prettier nodemon'
+
+
+
+# folders
+alias tools='cd ~/gits/'
+alias gits='cd ~/gits/'
+

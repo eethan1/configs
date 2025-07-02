@@ -20,3 +20,5 @@ if [ $_y = 'y' ] || [ $_y = 'Y' ]; then
     chsh -s $(which zsh)
 fi
 
+git config --global pull.rebase true
+

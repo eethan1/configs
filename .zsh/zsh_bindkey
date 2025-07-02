@@ -6,12 +6,9 @@ bindkey '^ ' autosuggest-accept
 #定义快捷键为： [Esc] [Esc]
 bindkey "\e\e" sudo-command-line
 #}}}
-
+bindkey '\e`' proxychains-command-line
 #bindkey '^[[1;3A'      cdParentKey
 #bindkey '^[[1;3D'      cdUndoKeyy
 
 
-#定义快捷键为： [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-#
 

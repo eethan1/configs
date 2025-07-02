@@ -6,6 +6,12 @@ sudo-command-line() {
 zle end-of-line                 #光标移动到行末
 }
 zle -N sudo-command-line
+proxychains-command-line() {
+[[ -z $BUFFER ]] && zle up-history
+[[ $BUFFER != proxychains\ * ]] && BUFFER="proxychains $BUFFER"
+zle end-of-line                 #光标移动到行末
+}
+zle -N proxychains-command-line
 
 cpdevip() {
 ip -j addr show ${1:-tun0} | jq --join-output ".[]|.addr_info[]|select(.family==\"inet\")| .local"  | xclip -selection clipboard
@@ -16,8 +22,11 @@ ip -j addr show ${1:-tun0} | jq --join-output ".[]|.addr_info[]|select(.family==
 
 
 # Hook 
-
+AUTOVENV=0
 chpwd(){
+	if [[ "$AUTOVENV" == "0" ]]; then
+		return 0 
+	fi
 	if [[ -v venvpath ]] then
 		if [[ !($(pwd) =~ "^${venvpath}") ]] then
 			eval source ./.venv/bin/deactivate
@@ -49,4 +58,14 @@ dbashroot() {
 
 dsh() {
   docker exec -it $1 /bin/sh
+}
+
+mkwindir() {
+  local win_path="$1"
+  # 移除前面的雙反斜線 \\（如果有）
+  local trimmed="${win_path#\\\\}"
+  # 將反斜線 \ 換成正斜線 /
+  local unix_path="${trimmed//\\//}"
+  # 建立目錄
+  mkdir -p "$unix_path"
 }
