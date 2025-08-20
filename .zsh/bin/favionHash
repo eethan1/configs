@@ -3,8 +3,19 @@ import mmh3
 import requests
 import sys
 import base64
-resp = requests.get(sys.argv[1])
+import hashlib
+
+target=sys.argv[1]
+if 'favicon.ico' not in target:
+    target = target + '/favicon.ico'
+resp = requests.get(target, verify=False)
 
 favicon = base64.b64encode(resp.content)
-hash = mmh3.hash(favicon)
-print(hash)
+mmh3_hash = mmh3.hash(favicon)
+md5_hash = hashlib.md5(resp.content).hexdigest()
+print(f'mmh3={mmh3_hash}')
+print(f'md5={md5_hash}')
+print(f'shodan: http.favicon.hash:{mmh3_hash}')
+print(f'zoomeye: iconhash:"{mmh3_hash}"')
+print(f'censys: {md5_hash}')
+
