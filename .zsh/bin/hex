@@ -1,0 +1,2 @@
+#! /usr/bin/env bash
+python -c "import sys;s = sys.argv[1]; print(' '.join([f'{ord(i):x}' for i in s]))" "$1"
