@@ -1,0 +1,53 @@
+#! /usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# ///
+import sys
+
+
+def convert_2_2bytes(i: int) -> bytes:
+    b1 = ((i >> 6) & 0b11111) | 0b11000000
+    b2 = (i & 0b111111) | 0b10000000
+    return bytes([b1, b2])
+
+
+def convert_2_3bytes(i: int) -> bytes:
+    b1 = ((i >> 12) & 0b11111) | 0b11100000
+    b2 = ((i >> 6) & 0b11111) | 0b10000000
+    b3 = (i & 0b111111) | 0b10000000
+    return bytes([b1, b2, b3])
+
+
+def convert_2_4bytes(i: int) -> bytes:
+    b1 = ((i >> 18) & 0b11111) | 0b11110000
+    b2 = ((i >> 12) & 0b11111) | 0b10000000
+    b3 = ((i >> 6) & 0b11111) | 0b10000000
+    b4 = (i & 0b111111) | 0b10000000
+    return bytes([b1, b2, b3, b4])
+
+
+ss = sys.argv[1]
+se = ss.encode()
+ole = b"".join([convert_2_2bytes(i) for i in se])
+print("#### Overlong 2bytes ####")
+print(f"Overlong UTF8: {ole}")
+ue = "".join([f"%{i:x}" for i in ole])
+print(f"URLencode    : {ue}")
+bb = " ".join([f"{i:b}" for i in ole])
+print(f"Binary       :  {bb}")
+print("")
+print("#### Overlong 3bytes ####")
+ole = b"".join([convert_2_3bytes(i) for i in se])
+print(f"Overlong UTF8: {ole}")
+ue = "".join([f"%{i:x}" for i in ole])
+print(f"URLencode    : {ue}")
+bb = " ".join([f"{i:b}" for i in ole])
+print(f"Binary       :  {bb}")
+print("")
+print("#### Overlong 4bytes ####")
+ole = b"".join([convert_2_4bytes(i) for i in se])
+print(f"Overlong UTF8: {ole}")
+ue = "".join([f"%{i:x}" for i in ole])
+print(f"URLencode    : {ue}")
+bb = " ".join([f"{i:b}" for i in ole])
+print(f"Binary       :  {bb}")
